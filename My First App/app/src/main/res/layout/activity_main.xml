@@ -65,6 +65,7 @@
         android:layout_marginRight="24dp"
         android:layout_marginTop="8dp"
         android:background="@color/buttonBackground"
+        android:onClick="randomMe"
         android:text="Random"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
