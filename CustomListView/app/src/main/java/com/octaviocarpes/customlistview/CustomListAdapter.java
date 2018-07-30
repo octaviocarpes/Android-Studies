@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -33,6 +34,19 @@ public class CustomListAdapter extends ArrayAdapter {
 
         //this code sets the values of the objects to values from the arrays
         todoTextView.setText(toDos.get(position));
+
+        Button deleteButton = (Button) rowView.findViewById(R.id.buttonID);
+        deleteButton.setTag(position);
+
+        deleteButton.setOnClickListener(
+                new Button.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Integer index = (Integer) v.getTag();
+                        toDos.remove(index.intValue());
+                        notifyDataSetChanged();
+                    }
+                });
 
         return rowView;
     }
